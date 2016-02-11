@@ -5,7 +5,7 @@ function initApp() {
     var paragraph = $("p[data-person=" + firstMember.data("person") + "]");
     paragraph.addClass("show active");
     setTimeout(function () {
-        paragraph.parent().height(paragraph.height());
+        paragraph.parent().height(paragraph.height() + parseInt(paragraph.css("padding-top")) * 2);
     }, 10);
 }
 
@@ -30,7 +30,7 @@ function toggleActiveTeamMember() {
             row.addClass("active");
             member.addClass("active");
             paragraph.addClass("active");
-            paragraph.parent().height(paragraph.height());
+            paragraph.parent().height(paragraph.height() + parseInt(paragraph.css("padding-top")) * 2);
             $(".mdl-layout__content").animate({scrollTop: row.position().top}, 500);
         }, 10);
     }, 300);

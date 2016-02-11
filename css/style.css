@@ -13,10 +13,6 @@
     position: relative;
 }
 
-.team-pictures-row.active {
-    /*height: 340px;*/
-}
-
 .team-pictures-row .team-member {
     float: left;
     margin-right: 1.25%;
@@ -51,7 +47,11 @@ p[data-person] {
     transition: max-height 0.3s ease-in-out;
     overflow: hidden;
     width: 60%;
-    margin-left: 20%;
+    padding: 16px 20%;
+    background-color: #f5f5f5;
+    box-shadow:
+            inset 0px 11px 8px -10px #CCC,
+            inset 0px -11px 8px -10px #CCC;
 }
 
 p[data-person].show {
