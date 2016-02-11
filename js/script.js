@@ -7,6 +7,14 @@ function initApp() {
     setTimeout(function () {
         paragraph.parent().height(paragraph.height() + parseInt(paragraph.css("padding-top")) * 2);
     }, 10);
+    var vh = $(window).height();
+    $("#problem").css("margin-top", vh);
+    $("#concept").css("margin-top", vh * 2);
+    $("#team").css("margin-top", vh * 3);
+    $(".mdl-layout__content").on("scroll", checkScrollHeader);
+    $("#home-link").on("click", function () {
+        $(".mdl-layout__content").animate({scrollTop: 0}, 500);
+    });
 }
 
 function toggleActiveTeamMember() {
@@ -31,7 +39,20 @@ function toggleActiveTeamMember() {
             member.addClass("active");
             paragraph.addClass("active");
             paragraph.parent().height(paragraph.height() + parseInt(paragraph.css("padding-top")) * 2);
-            $(".mdl-layout__content").animate({scrollTop: row.position().top}, 500);
+            $(".mdl-layout__content").animate({scrollTop: row.position().top + parseInt($("#team").css("margin-top"))}, 500);
         }, 10);
     }, 300);
+}
+
+function checkScrollHeader() {
+    var scroll = $(".mdl-layout__content").scrollTop();
+    var max = 680;
+    var header = $(".mdl-layout__header");
+    if (scroll > max) {
+        header.removeClass("mdl-layout__header--transparent");
+        $("body").removeClass("trans-header");
+    } else {
+        header.addClass("mdl-layout__header--transparent");
+        $("body").addClass("trans-header");
+    }
 }
