@@ -1,0 +1,58 @@
+.content {
+    padding: 16px;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.team-pictures-row {
+    width: 100%;
+    overflow: auto;
+    padding-left: 0;
+    transition: height 0.3s ease-in-out;
+    height: 200px;
+    position: relative;
+}
+
+.team-pictures-row.active {
+    height: 340px;
+}
+
+.team-pictures-row .team-member {
+    float: left;
+    margin-right: 1.25%;
+    box-sizing: border-box;
+    width: 19%;
+}
+
+.team-pictures-row .team-member:nth-of-type(5n) {
+    margin-right: 0;
+}
+
+.team-pictures-row .team-member img {
+    border-radius: 50%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.team-pictures-row .team-member span {
+    text-align: center;
+    display: block;
+}
+
+.team-pictures-row p {
+    display: none;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    position: absolute;
+    width: 60%;
+    left: 20%;
+}
+
+.team-pictures-row p.active {
+    max-height: 300px;
+}
+
+.team-pictures-row p.show {
+    display: block;
+}
